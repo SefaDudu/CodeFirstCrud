@@ -1,0 +1,38 @@
+﻿@model CodeFirst_Ef.Models.Kisiler
+@{
+    ViewBag.Title = "Duzenle";
+}
+
+<h2> Kişi Düzenle</h2>
+<hr />
+@using (Html.BeginForm())
+{
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="txtad">Ad</span>
+        @Html.TextBoxFor(x => x.Ad, new { @class = "form-control", placeholder = "Kişi Adı", aria_describedby = "txtad" })
+        <br />
+        <br />
+        <span class="input-group-text" id="txtsoyad">Soyad</span>
+        @Html.TextBoxFor(x => x.Soyad, new { @class = "form-control", placeholder = "Kişi Soyadı", aria_describedby = "txtsoyad" })
+        <br />
+        <br />
+        <span class="input-group-text" id="txtyas">Yaş</span>
+        @Html.TextBoxFor(x => x.Yas, new { @class = "form-control", placeholder = "Kişi Yaşı", aria_describedby = "txtyas" })
+        <br />
+        <br />
+    </div>
+    <div class="input-group mb-3">
+        <input type="submit" value="Kaydet" class="btn btn-success" />
+    </div>
+    <div class="input-group">
+
+        @if (ViewBag.Result != null)
+        {
+
+            <div class="alert alert-@ViewBag.Status" role="alert">
+                @ViewBag.Result
+            </div>
+        }
+
+    </div>
+}

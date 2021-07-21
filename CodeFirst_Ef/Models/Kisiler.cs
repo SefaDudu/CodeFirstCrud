@@ -1,0 +1,28 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Web;
+
+namespace CodeFirst_Ef.Models
+{   //Tablo Adı
+    [Table("Kisiler")]
+    public class Kisiler
+    {
+       //Primarykey ve otomatik artan
+        [Key,DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+        //20 karakter ve boş geçilemez
+        [StringLength(20) , Required]
+        public string Ad { get; set; }
+        [StringLength(20), Required]
+
+        public string Soyad { get; set; }
+        [ Required]
+
+        public int Yas { get; set; }
+        public virtual List<Adresler> Adresler { get; set; }
+        //bir kişinin birden fazla adresi olabilir
+    }
+}
